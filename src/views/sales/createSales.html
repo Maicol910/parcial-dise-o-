@@ -21,7 +21,7 @@
     a.ico2 {
         height: 10px 10px;
         width: 10px 10px;
-        margin: 0px 0px;
+        margin: 0px 355px;
     }
 </style>
 <div class="est container">
@@ -34,7 +34,7 @@
 
             <form method="POST" class="container">
                 <div class="est2 mb-3">
-                    <label for="cashier_id"><a class="ico2 btn btn-outline-dark" href="{{url_for('createCashiers')}}"><i class="bi bi-person-plus-fill"></a></i> <b>Cajero</b> </label>
+                    <label for="cashier_id"><i class="bi bi-pc-display"></i> <b>Cajero</b> </label>
                     <select name="cashier_id" class="form-control" id="cashier_id" required>
                         <option selected ='true' disabled>Cajeros</option>
                         {% if cashiers %}
@@ -47,12 +47,13 @@
                             {% endfor %}
                         {% endif%}
                     </select>
+                    <a class="ico2 btn btn-outline-dark" href="{{url_for('createCashiers')}}"><i class="bi bi-person-plus-fill"></a></i>
                     <!-- <a class="ico2 btn btn-outline-dark" href="{{url_for('createCashiers')}}"><i class="bi bi-person-plus-fill"></i></a> -->
                     <!-- <div class="col-3"> <button type="submit" class="btn btn-dark"><i class="bi bi-person-plus-fill"></i></button></div> -->
                 </div>
 
                 <div class="est2 mb-3">
-                    <label for="client_id"><a class="ico2 btn btn-outline-dark" href="{{url_for('createClients')}}"><i class="bi bi-person-plus-fill"></i></a> <b>Cliente</b> </label>
+                    <label for="client_id"><i class="bi bi-person-fill"></i> <b>Cliente</b> </label>
                     <select name="client_id" class="form-control" id="client_id" required>
                         <option selected ='true' disabled>Clientes</option>
                         {% if clients %}
@@ -65,10 +66,10 @@
                             {% endfor %}
                         {% endif%}
                     </select>
-                    <!-- <a class="ico2 btn btn-outline-dark" href="{{url_for('createClients')}}"><i class="bi bi-person-plus-fill"></i></a> -->
+                    <a class="ico2 btn btn-outline-dark" href="{{url_for('createClients')}}"><i class="bi bi-person-plus-fill"></i></a>
                 </div>
                 <div class="est2 mb-3">
-                    <label for="product_id"><a class="ico2 btn btn-outline-dark" href="{{url_for('createProducts')}}"><i class="bi bi-plus-square-fill"></i></a> <b>Producto</b> </label>
+                    <label for="product_id"><i class="bi bi-cart-fill"></i> <b>Producto</b> </label>
                     <select name="product_id" class="form-control" id="product_id" required>
                         <option selected ='true' disabled>Productos</option>
                         {% if products %}
@@ -81,7 +82,7 @@
                             {% endfor %}
                         {% endif%}
                     </select>
-                    <!-- <a class="ico2 btn btn-outline-dark" href="{{url_for('createProducts')}}"><i class="bi bi-plus-square-fill"></i></a> -->
+                    <a class="ico2 btn btn-outline-dark" href="{{url_for('createProducts')}}"><i class="bi bi-plus-square-fill"></i></a>
                 </div>
                 <div class="est2 mb-3">
                     <label for="amount"><i class="bi bi-bag-plus-fill"></i> <b>Cantidad</b> </label>
