@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %} {% block title %} Editar venta {% endblock %} {% block content %}
+<style>
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    div.est {
+        height: 100px;
+        width: 800px;
+    }
+    
+    div.est2 {
+        height: 50px;
+        width: 400px;
+        margin: 20px 0;
+    }
+</style>
+<div class="est container">
+    <center>
+        <h1>Editar ventas</h1>
+    </center>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col">
+
+            <form method="POST" class="container">
+                <div class="est2 mb-3">
+                    <label for="cashier_id"><i class="bi bi-pc-display"></i> <b>Cajero</b></label>
+                    <input class="form-control" type="number" id="cashier_id" name="cashier_id" value="{{sale[1]}}">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="client_id"><i class="bi bi-person-fill"></i> <b>Cliente</b></label>
+                    <input class="form-control" type="number" id="client_id" name="client_id" value="{{sale[2]}}">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="product_id"><i class="bi bi-cart-fill"></i> <b>Producto</b></label>
+                    <input class="form-control" type="number" id="product_id" name="product_id" value="{{sale[3]}}">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="amount"><i class="bi bi-bag-plus-fill"></i> <b>Cantidad</b></label>
+                    <input class="form-control" type="number" id="amount" name="amount" value="{{sale[4]}}">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="value"><i class="bi bi-currency-dollar"></i> <b>Precio</b></label>
+                    <input class="form-control" type="text" id="value" name="value" value="{{sale[5]}}">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="purchase_date"><i class="bi bi-calendar-date-fill"></i> <b>Fecha compra</b></label>
+                    <input class="form-control" type="date" id="purchase_date" name="purchase_date" value="{{sale[6]}}">
+                </div>
+                <button type="submit" class="btn btn-outline-success"><i class="bi bi-clipboard-check-fill"></i></button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+{% endblock %}

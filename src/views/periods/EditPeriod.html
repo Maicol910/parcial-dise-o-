@@ -1,0 +1,41 @@
+{% extends 'layouts/indexBase.html' %} {% block title %} Editar periodo {% endblock %} {% block content %}
+<style>
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    div.est {
+        height: 100px;
+        width: 800px;
+    }
+    
+    div.est2 {
+        height: 60px;
+        width: 400px;
+        margin: 30px auto;
+    }
+    
+    button {
+        margin: 0px 190px;
+    }
+</style>
+<div class="est container">
+    <center>
+        <h2><b>Editar empresa</b></h2>
+    </center>
+    <form method="POST">
+        <div class="est2 mb-3">
+            <label for="date"><b>Supermercado</b> </label>
+            <input value="{{period[1]}}" class="form-control" type="text" placeholder="Nombre" id="date" name="date" required>
+        </div>
+        <div class="est2 mb-3">
+            <label for="period"><b>NIT</b> </label>
+            <input value="{{period[2]}}" class="form-control" type="number" placeholder="Cod. " id="period" name="period" required>
+        </div>
+        <button class="btn btn-outline-success" type="submit"><i class="bi bi-clipboard-check-fill"></i></button>
+    </form>
+</div>
+{% endblock %}

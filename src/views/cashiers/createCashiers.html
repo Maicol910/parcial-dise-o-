@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %} {% block title %} Crear cajero {% endblock %} {% block content %}
+<style>
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    div.est {
+        height: 100px;
+        width: 800px;
+    }
+    
+    div.est2 {
+        height: 50px;
+        width: 400px;
+        margin: 20px 0;
+    }
+</style>
+<div class="est container">
+    <center>
+        <h1>Crear cajero</h1>
+    </center>
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col">
+
+            <form method="POST">
+                <div class="est2 mb-3">
+                    <label for="identification"><i class="bi bi-postcard-fill"></i> <b>Identificacion</b> </label>
+                    <input class="form-control" type="text" name="identification" id="identification">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="name"><i class="bi bi-person-lines-fill"></i> <b>Nombre/Apellido</b> </label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="contact"><i class="bi bi-telephone-fill"></i> <b>Contacto</b> </label>
+                    <input class="form-control" type="text" name="contact" id="contact">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="direction"><i class="bi bi-pin-map-fill"></i> <b>Direccion</b> </label>
+                    <input class="form-control" type="text" name="direction" id="direction">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="arrival_time"><i class="bi bi-clock-fill"></i> <b>Hora entrada</b> </label>
+                    <input class="form-control" type="time" name="arrival_time" id="arrival_time">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="departure_time"><i class="bi bi-clock-fill"></i> <b>Hora salida</b> </label>
+                    <input class="form-control" type="time" name="departure_time" id="departure_time">
+                </div>
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-clipboard-check-fill"></i></button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{% endblock %}

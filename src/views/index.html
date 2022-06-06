@@ -1,0 +1,75 @@
+{% extends 'layouts/base.html' %} {% block title %} Inicio {% endblock %} {% block content %}
+<style>
+    table {
+        border-radius: 10px 10px 15px 15px;
+        background-color: rgba(1, 1, 1, 0.616);
+        border-spacing: 0;
+    }
+    
+    thead {
+        background: #000000;
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    td {
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    caption {
+        caption-side: top;
+        background: rgba(0, 0, 0, 0.965);
+        padding-bottom: 1px;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    div.est {
+        width: 65%;
+        margin-top: 50px;
+    }
+</style>
+<div class="est container mt-3">
+    <h1><b>Supermercados</b></h1>
+    <br>
+    <div class="row">
+        <!-- <div class="col-1"></div> -->
+        <div class="col">
+            <a class="btn btn-outline-dark" href="{{url_for('createPeriod')}}"><i class="bi bi-plus-circle-fill"></i><b> Nuevo supermercado</b></a>
+            <br>
+            <br>
+            <table class="table table-responsive">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Supermercado</th>
+                        <th>NIT</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for period in periods %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{period[1]}}</td>
+                        <td>{{period[2]}}</td>
+                        <td>
+                            <a class="btn btn-success" href="{{url_for('editPeriod', idPeriod = period[0])}}"><i  class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" href="{{url_for('removePeriod', idPeriod = period[0])}}"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

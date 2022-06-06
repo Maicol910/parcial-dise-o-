@@ -1,0 +1,115 @@
+{% extends 'layouts/base.html' %} {% block title %} Ventas {% endblock %} {% block content %}
+<style>
+    table {
+        border-radius: 10px 10px 15px 15px;
+        background-color: rgba(1, 1, 1, 0.674);
+        border-spacing: 0;
+    }
+    
+    thead {
+        background: #000000;
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    td {
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    caption {
+        caption-side: top;
+        background: rgb(0, 0, 0);
+        padding-bottom: 5px;
+        border-radius: 10px 10px 0 0;
+        /* color: #FFFFFF;
+        text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9;
+        color: #FFFFFF; */
+        color: rgb(255, 255, 255);
+        text-align: center;
+    }
+    
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    select {
+        text-align-last: center;
+    }
+</style>
+<div class="container mt-3 row">
+    <div class="col-4"></div>
+    <div class="mb-3 col">
+        <form method="POST">
+            <div class="col"></div>
+            <select name="period" class="form-control">
+                    <option selected='true' disabled>Supermercado</option>
+                    {% if periods %}
+                        {% for period in periods %}
+                            {% if pd == period[0] %}
+                                <option selected='True' disabled value="{{period[0]}}">{{period[1]}}-{{period[2]}}</option>
+                            {% else %}
+                                <option value="{{period[0]}}">{{period[1]}}-{{period[2]}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif%}
+                </select>
+    </div>
+    <div class="col-3"> <button type="submit" class="btn btn-dark">Buscar</button></div>
+    </form>
+</div>
+<div class="est container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+            <a class="btn btn-outline-dark" href="{{url_for('createSales')}}"><i class="bi bi-plus-circle-fill"></i> <b>Nueva venta</b> </a>
+            <br>
+            <br>
+            <table class="table table-responsive">
+                <caption><b>VENTAS</b></caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cajero</th>
+                        <th>Cliente</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>$ Precio </th>
+                        <th>Fecha compra</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in sales %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{sale[1]}}</td>
+                        <td>{{sale[2]}}</td>
+                        <td>{{sale[3]}}</td>
+                        <td>{{sale[4]}}</td>
+                        <td>$ {{sale[5]}}</td>
+                        <td>{{sale[6]}}</td>
+                        <td>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                            <script>
+                                function abrirNuevo2(URL) {
+                                    window.open(URL, '_blank')
+                                }
+                            </script>
+                            <a class="btn btn-warning" href="javascript:abrirNuevo2('{{url_for('imprimirSales', idSale=sale[0])}}')"><i class="bi bi-printer-fill"></i></a>
+                            <a class="btn btn-success" href="{{url_for('editSales', idSale=sale[0])}}"><i class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" href="{{url_for('removeSales', idSale=sale[0])}}"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

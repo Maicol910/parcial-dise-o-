@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %} {% block title %} Editar Categorias {% endblock %} {% block content %}
+<style>
+    h1 {
+        color: #000000;
+        text-shadow: 2px 1px 0 #7A7A7A;
+        color: #000000;
+        text-align: center;
+    }
+    
+    div.est {
+        height: 100px;
+        width: 800px;
+    }
+    
+    div.est2 {
+        height: 50px;
+        width: 400px;
+        margin: 20px 0;
+    }
+</style>
+<div class="est container mt-3 mb-3">
+    <center>
+        <h1>Editar categoria</h1>
+    </center>
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col">
+
+            <form method="POST">
+                <div class="est2 mb-3">
+                    <label for="name"><i class="bi bi-list-ul"></i> <b>Nombre</b></label>
+                    <input class="form-control" value='{{category[2]}}' type="text" name="name" id="name">
+                </div>
+                <div class="est2 mb-3">
+                    <label for="barcode"><i class="bi bi-upc-scan"></i> <b>Codigo barras</b></label>
+                    <input class="form-control" value='{{category[3]}}' type="text" name="barcode" id="barcode">
+                </div>
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-clipboard-check-fill"></i></button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{% endblock %}
